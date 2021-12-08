@@ -4,7 +4,7 @@ import re
 cleared_diagnostics = []
 diagnostics = np.loadtxt("input_day3.txt", dtype=str, delimiter="\n")
 for line in diagnostics:
-    separated = np.array(re.findall(".", line), dtype=int)
+    separated = np.array(re.findall("..", line), dtype=int)
     cleared_diagnostics.append(separated)
 oxygen_numbers = np.array(cleared_diagnostics)
 co2_numbers = np.array(cleared_diagnostics)
