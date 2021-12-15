@@ -14,8 +14,8 @@ for line in data:
         if char in openers:
             states.append(openers.index(char))
         elif char in closers:
-            if states[len(states) - 1] == closers.index(char):
-                states.pop(len(states) - 1)
+            if states[-1] == closers.index(char):
+                states.pop(-1)
             else:
                 skip_completion = True
                 break
