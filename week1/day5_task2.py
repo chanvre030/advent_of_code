@@ -8,7 +8,7 @@ def main():
     parent = Path(__file__).parent.resolve()
     txt = "input_day5.txt"
     path = os.path.join(parent, txt)
-    input_data = np.loadtxt(path, dtype=str, delimiter=" -> ")
+    input_data = np.loadtxt(path, dtype=str, delimiter=" ")[:, [0, 2]]
     lines = np.array(list(list(np.fromstring(point, dtype=int, sep=",") for point in line) for line in input_data))
     vents = np.empty((0, 2))
     for line in lines:
