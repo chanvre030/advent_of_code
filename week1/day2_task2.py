@@ -12,9 +12,8 @@ def main():
     parent = Path(__file__).parent.resolve()
     txt = "input_day2.txt"
     path = os.path.join(parent, txt)
-    commands = np.loadtxt(path, dtype=str, delimiter="\n")
+    commands = np.loadtxt(path, dtype=str, delimiter=" ")
     for command in commands:
-        command = command.split()
         direction = command[0]
         magnitude = int(command[1])
         if direction == "forward":

@@ -10,7 +10,7 @@ def main():
     parent = Path(__file__).parent.resolve()
     txt = "input_day3.txt"
     path = os.path.join(parent, txt)
-    diagnostics = np.loadtxt(path, dtype=str, delimiter="\n")
+    diagnostics = np.loadtxt(path, dtype=str, delimiter=" ")
     for line in diagnostics:
         separated = np.array(re.findall("..", line), dtype=int)
         cleared_diagnostics.append(separated)

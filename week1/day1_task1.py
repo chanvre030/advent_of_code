@@ -8,7 +8,7 @@ def main():
     parent = Path(__file__).parent.resolve()
     txt = "input_day1.txt"
     path = os.path.join(parent, txt)
-    nums = np.loadtxt(path, delimiter="\n")
+    nums = np.loadtxt(path, delimiter=" ")
     prev = nums[0]
     counter = 0
     for num in nums[1:]:
