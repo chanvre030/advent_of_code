@@ -12,19 +12,19 @@ import os
 
 laptop = "new"      # "old" or "new"
 
-# reading data
-print("reading data")
-datapath = "data"
+# read data
+datapath = "data.csv"
+print(f"reading {datapath}")
 if os.path.isfile(datapath):
     print("existing data found and used")
-    df = pd.read_csv("data")
+    df = pd.read_csv(datapath)
 else:
     print("no file found, new one created")
     df = pd.DataFrame(columns=["name", "day", "task", "time", "laptop"])
 
-# running and timing the tasks
+# run and time the tasks
 print("start timing")
-paths = natsorted(glob.glob("week1/*.py"))
+paths = natsorted(glob.glob("week2/day8_task2.py"))
 for path in paths:
     print(path)
     name = path.split("\\")[-1][:-3]
@@ -37,11 +37,15 @@ for path in paths:
 
 # write data
 print("writing data")
-df.to_csv("data", index=False)
+df.to_csv("data.csv", index=False)
 print(df)
 
 # create graph
 print("creating graph")
+sns.barplot(x="day", y="time", hue="laptop", data=df, ci="sd", capsize=.2)
+plt.yscale("log")
+
+
 fig, axes = plt.subplots(ncols=3)
 sns.barplot(x="day", y="time", hue="laptop", data=df, ci="sd", capsize=.2, ax=axes[0])
 # sns.barplot(x="day", y="time", data=df, ci="sd", capsize=.2, ax=axes[0])
