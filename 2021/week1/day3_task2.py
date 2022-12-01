@@ -12,7 +12,7 @@ def main():
     path = os.path.join(parent, txt)
     diagnostics = np.loadtxt(path, dtype=str, delimiter=" ")
     for line in diagnostics:
-        separated = np.array(re.findall(".", line), dtype=int)
+        separated = np.array(re.findall("", line), dtype=int)
         cleared_diagnostics.append(separated)
     oxygen_numbers = np.array(cleared_diagnostics)
     co2_numbers = np.array(cleared_diagnostics)
